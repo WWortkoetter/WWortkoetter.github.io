@@ -1,15 +1,27 @@
-var stadiums = {
+var teams = {
   "type": "FeatureCollection",
   "features": [
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-83.14895556,39.97709722]
+        "coordinates": [-84.401,33.755]
       },
       "properties": {
-        "capacity": "0",
-        "stadiumName": "sample"
+        "teamName": "Atlanta United FC",
+        "capacity": "42,500",
+        "stadiumName": "Mercedes-Benz Stadium"
+      }
+    },{
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-82.991111,40.009444]
+      },
+      "properties": {
+        "teamName": "Columbus Crew SC",
+        "capacity": "19,968",
+        "stadiumName": "Mapfre Stadium"
       }
     },{
       "type": "Feature",
@@ -18,6 +30,7 @@ var stadiums = {
         "coordinates": [-84.516,39.131]
       },
       "properties": {
+        "teamName": "FC Cincinnati",
         "capacity": "35,061",
         "stadiumName": "Nippert Stadium"
       }
