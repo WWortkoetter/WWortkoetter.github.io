@@ -1,19 +1,30 @@
-<!DOCTYPE html>
 <!--Coded by Wyatt Wortkoetter -->
 
+<!DOCTYPE html>
 <html>
-  <head>
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="leaflet/leaflet.css" />
+<head>
+  <meta charset='utf-8' />
+  <title>Display a map</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+<body>
 
-  <!-- Scripts -->
-  <script src="leaflet/leaflet.js"></script>
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoid3dvcnRrb2V0dGVyIiwiYSI6ImNqdG9xZzNxNTBvNms0OXFwbWxjb3BkdmgifQ.Jl-yU48J6uvl7v8xKFVW4w';
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/wwortkoetter/cj6zgn2fg1i3l2rptebgk0jrs',
+  center: [0.000000, 0.000000],
+  zoom: 0.0
+});
+</script>
 
-  </head>
-
-  <body>
-    <div>
-
-    </div>
-  </body>
+</body>
 </html>
