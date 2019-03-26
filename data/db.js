@@ -1,3 +1,5 @@
+// JSON file of MLS data
+
 var teams = {
   "type": "FeatureCollection",
   "features": [
