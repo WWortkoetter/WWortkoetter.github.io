@@ -32,5 +32,7 @@ window.onload = function () {
     console.log("lööp");
   };
   console.log(markerList)
-  markerList.addTo(map);
+  for (var i = 0; i < markerList.length; i++){
+    markerList[i].addTo(map);
+  }
 }
