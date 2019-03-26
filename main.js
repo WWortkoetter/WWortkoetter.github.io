@@ -26,7 +26,7 @@ window.onload = function () {
   // .setLngLat([-84.401,33.755])
   // .addTo(map);
 
-  var markerList = {};
+  var markerList = [];
   for (var i = 0; i < teams['features'].length; i++) {
     markerList.push(new mapboxgl.Marker().setLngLat(teams['features'][i]['geometry']['coordinates']));
     console.log("lööp");
