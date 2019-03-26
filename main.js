@@ -1,5 +1,7 @@
+import "/data/stadiums.js";
 // Coded by Wyatt Wortkoetter
 // 25 March 2019
+
 "use strict";
 
 window.onload = function () {
@@ -25,4 +27,12 @@ window.onload = function () {
   var marker3 = new mapboxgl.Marker()
   .setLngLat([-84.401,33.755])
   .addTo(map);
+
+
+  var markerArray = [];
+  var i = 0;
+  for (i = 0; i < teams.length(); i++) {
+    print(teams[0]);
+    //var tmp = new mapboxgl.Marker().setLngLat()
+  };
 }
