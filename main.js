@@ -26,13 +26,11 @@ window.onload = function () {
   // .setLngLat([-84.401,33.755])
   // .addTo(map);
 
-  console.log("Made it here!");
-  console.log("Teams:");
-  console.log(teams);
   var markerList = {};
-  for (var i = 0; i < teams['features'].length(); i++) {
+  for (var i = 0; i < teams['features'].length; i++) {
     markerList.append(mapboxgl.Marker().setLngLat(teams['features'][i]['geometry']['coordinates']));
     console.log("lööp");
   };
+  console.log(markerList)
   markerList.addTo(map);
 }
