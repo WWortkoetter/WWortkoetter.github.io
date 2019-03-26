@@ -1,4 +1,4 @@
-import "/data/stadiums.js";
+import * from "/data/db.js" as db;
 // Coded by Wyatt Wortkoetter
 // 25 March 2019
 
