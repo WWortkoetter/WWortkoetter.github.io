@@ -1,6 +1,6 @@
 // Coded by Wyatt Wortkoetter
 // 25 March 2019
-
+import "/data/db.js";
 "use strict";
 
 window.onload = function () {
