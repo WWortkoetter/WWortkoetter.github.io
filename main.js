@@ -1,7 +1,6 @@
 // Coded by Wyatt Wortkoetter
 // 25 March 2019
 header('Content-Type: application/javascript');
-import "/data/db.js";
 "use strict";
 
 window.onload = function () {
