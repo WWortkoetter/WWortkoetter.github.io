@@ -1,6 +1,5 @@
 // Coded by Wyatt Wortkoetter
 // 25 March 2019
-header('Content-Type: application/javascript');
 "use strict";
 
 window.onload = function () {
