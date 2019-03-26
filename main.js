@@ -16,15 +16,15 @@ window.onload = function () {
   // var ll1 = new mapboxgl.LngLat(-84.516,39.131);
   // var ll2 = new mapboxgl.LngLat(-82.991111,40.009444);
 
-  var marker1 = new mapboxgl.Marker()
-  .setLngLat([-84.516,39.131])
-  .addTo(map);
-  var marker2 = new mapboxgl.Marker()
-  .setLngLat([-82.991111,40.009444])
-  .addTo(map);
-  var marker3 = new mapboxgl.Marker()
-  .setLngLat([-84.401,33.755])
-  .addTo(map);
+  // var marker1 = new mapboxgl.Marker()
+  // .setLngLat([-84.516,39.131])
+  // .addTo(map);
+  // var marker2 = new mapboxgl.Marker()
+  // .setLngLat([-82.991111,40.009444])
+  // .addTo(map);
+  // var marker3 = new mapboxgl.Marker()
+  // .setLngLat([-84.401,33.755])
+  // .addTo(map);
 
   var markerList = {};
   for (var i = 0; i < teams['features'].length; i++) {
