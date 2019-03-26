@@ -29,10 +29,10 @@ window.onload = function () {
   console.log("Made it here!");
   console.log("Teams:");
   console.log(teams);
-  var markerArray = [];
-  var i = 0;
-  // for (i = 0; i < teams.length(); i++) {
-  //   print(teams);
-  //   //var tmp = new mapboxgl.Marker().setLngLat()
-  // };
+  var markerList = {};
+  for (var i = 0; i < teams['features'].length(); i++) {
+    markerList.append(mapboxgl.Marker().setLngLat(teams['features'][i]['geometry']['coordinates']));
+    console.log("lööp");
+  };
+  markerList.addTo(map);
 }
