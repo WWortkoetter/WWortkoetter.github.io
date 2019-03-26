@@ -1,4 +1,3 @@
-import * as db from "/data/db.js";
 // Coded by Wyatt Wortkoetter
 // 25 March 2019
 
@@ -28,11 +27,13 @@ window.onload = function () {
   .setLngLat([-84.401,33.755])
   .addTo(map);
 
-
+  print("Made it here!");
+  print("Teams:");
+  print(teams);
   var markerArray = [];
   var i = 0;
-  for (i = 0; i < teams.length(); i++) {
-    print(teams[0]);
-    //var tmp = new mapboxgl.Marker().setLngLat()
-  };
+  // for (i = 0; i < teams.length(); i++) {
+  //   print(teams);
+  //   //var tmp = new mapboxgl.Marker().setLngLat()
+  // };
 }
