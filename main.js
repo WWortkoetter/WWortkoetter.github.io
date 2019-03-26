@@ -1,4 +1,4 @@
-import * from "/data/db.js" as db;
+import * as db from "/data/db.js";
 // Coded by Wyatt Wortkoetter
 // 25 March 2019
 
