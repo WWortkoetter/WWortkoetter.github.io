@@ -53,7 +53,7 @@ rp(url)
     })
     .then(function() {
       console.log("*****WRITING FILE*****")
-      fs.writeFile('../data/MLS_DB.js', "var MLS_DATA = " + JSON.stringify(datab), (err) => {
+      fs.writeFile('../data/MLS_JSON.js', "var MLS_DATA = " + JSON.stringify(datab), (err) => {
           // in case of a error throw error
           if (err) throw (err);
       });
