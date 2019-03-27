@@ -13,8 +13,8 @@ window.onload = function () {
   });
 
   var markerList = [];
-  for (var i = 0; i < teams['features'].length; i++) {
-    markerList.push(new mapboxgl.Marker().setLngLat(teams['features'][i]['geometry']['coordinates']));
+  for (var i = 0; i < MLS_DB['features'].length; i++) {
+    markerList.push(new mapboxgl.Marker().setLngLat(MLS_DB['features'][i]['geometry']['coordinates']));
     console.log("lööp");
   };
   console.log(markerList)

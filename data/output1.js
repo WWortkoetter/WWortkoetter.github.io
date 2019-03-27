@@ -1,1 +1,0 @@
-var MLSDATA = {"type":"FeatureCollection","features":[]}
