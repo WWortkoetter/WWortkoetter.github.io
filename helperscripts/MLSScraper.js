@@ -1,6 +1,6 @@
 'use strict';
 
-const rp = require('request-promise');
+const rp = require('./node_modules/request-promise');
 const $ = require('cheerio');
 const teamParse = require('./MLS_Team_Parse');
 const stadParse = require('./MLS_Stadium_Parse');
