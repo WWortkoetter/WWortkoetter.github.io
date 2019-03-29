@@ -1,33 +1,33 @@
+'use strict';
+
 const rp = require('request-promise');
 const $ = require('cheerio');
 
 const mlsParse = function(url) {
   return rp(url)
     .then(function(html) {
+      // JQueries for Team Pages
       var jqFULLNAME = $("th:contains('Full') + td", html).text();
       var jqNICKNAME = $('.nickname', html).first().text();
       var jqSTADIUM = $('.label > a:first-child', html).text();
+      var jqSTADIUMLINK = $(".label > a:first-child", html).attr("href");
       var jqLOCATION = $('.label > a:last-child', html).text();
-      console.log("URL: " + url);
-      // console.log("******BEGIN DATA READOUT******")
-      // console.log("officialname: " + jqFULLNAME);
-      // console.log("nickname: " + jqNICKNAME);
-      // console.log("stadium: " + jqSTADIUM);
-      // console.log("location: " + jqLOCATION);
-      // console.log("******END DATA READOUT******")
+      var jqLOCATIONLINK = $('.label > a:last-child', html).attr("href");
+
       return {
-        //officialname: $('tbody:nth-child(2):first-child', html).text(),
-        //nickname: $("tbody:has(tr:has(td:class(label)))", html).text(),
-        //stadium: $()
-        //location: $("td[class='label']:first-child", html).text()
         officialname: jqFULLNAME,
         nickname: jqNICKNAME,
         stadium: jqSTADIUM,
         location: jqLOCATION,
+        coord: [0,0],
+        links: {
+          stadiumlink: jqSTADIUMLINK,
+          locationlink: jqLOCATIONLINK
+        }
       };
     })
     .catch(function(err) {
-      //handle error
+      // handle error
     });
 };
 
