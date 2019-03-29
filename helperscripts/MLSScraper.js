@@ -2,10 +2,11 @@
 
 const rp = require('request-promise');
 const $ = require('cheerio');
-const teamParse = require('./MLS_TEAM_Parse');
+const teamParse = require('./MLS_Team_Parse');
+const stadParse = require('./MLS_Stadium_Parse');
 const fs = require('fs');
 const url = 'https://en.wikipedia.org/wiki/Major_League_Soccer';
-const NUMBER_OF_TEAMS = 1;
+const NUMBER_OF_TEAMS = 24;
 
 // array to be filled with urls to each team's wiki page
 const teamUrls = [];
@@ -13,7 +14,6 @@ const teamUrls = [];
 var datab = {};
 datab.type = "FeatureCollection";
 datab.features = [];
-console.log(datab);
 
 rp(url)
     .then(function (html) {
@@ -27,9 +27,7 @@ rp(url)
 
         return Promise.all(
           teamUrls.map(function(url) {
-            var msg = "TEAMPARSE FUNCTION";
-            var idk = teamParse('https://en.wikipedia.org'+url);
-            return idk;
+            return teamParse('https://en.wikipedia.org'+url);
           })
         );
     })
@@ -56,11 +54,19 @@ rp(url)
     })
     .then(function(html) {
       return Promise.all(
-        datab.features.properties.links.stadiumlink.map(function(each){
-          console.log("EACH");
-          console.log(each);
+        datab.features.map(function(each){
+          return stadParse('https://en.wikipedia.org'+each.properties.links.stadiumlink);
         })
       );
+    })
+    .then(function(res) {
+      console.log("*****************RESULT******************");
+      console.log(res)
+      for (let i = 0; i < res.length; i++){
+        datab.features[i].geometry.coordinates = res[i].latlng;
+      }
+      console.log("DATAB: "+datab.features[0].geometry.coordinates[0]);
+      console.log("DATAB: "+datab.features[0].geometry.coordinates[1]);
     })
     .catch(function (err) {
       console.log(err);
@@ -77,24 +83,3 @@ rp(url)
         //handle error
         console.log(err);
     });
-
-// rp(url)
-//     .then(function(html) {
-//       return Promise.all(
-//         datab.features.properties.links.stadiumlink.map(function(each){
-//           console.log("EACH");
-//           console.log(each);
-//         })
-//       );
-//     })
-//     .catch(function (err) {
-//       console.log(err);
-//     });
-
-
-// console.log("*****WRITING FILE*****")
-// fs.writeFile('../data/MLS_JSON.js', "var MLS_DATA = " + JSON.stringify(datab), (err) => {
-//     // in case of a error throw error
-//     if (err) throw (err);
-// });
-// console.log("*****WRITING COMPLETE*****")

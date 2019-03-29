@@ -4,6 +4,7 @@ const rp = require('request-promise');
 const $ = require('cheerio');
 
 const mlsParse = function(url) {
+  console.log("TEAMPARSE");
   return rp(url)
     .then(function(html) {
       // JQueries for Team Pages
