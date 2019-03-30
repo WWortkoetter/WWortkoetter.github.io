@@ -20,7 +20,7 @@ rp(url)
         // ACCESS WIKIPEDIA
         console.log("Gathering teams...");
         for (let i = 0; i < NUMBER_OF_TEAMS; i++) {
-            teamUrls.push($('b > a', html)[i].attribs.href);
+            teamUrls.push($('td > b > a', html)[i].attribs.href);
             console.log("[" + (i+1 < 10 ? '0': '') + String(i+1) + "/" + String(NUMBER_OF_TEAMS) + "]");
         }
         console.log("...Done.");
@@ -33,9 +33,9 @@ rp(url)
     })
     .then(function(details) {
       // CREATE JSON FILE
+      console.log("Filling in team data...");
       for (let i = 0; i < details.length; i++){
-        console.log("*****************DETAILS*****************")
-        console.log(details);
+        console.log("[" + (i+1 < 10 ? '0': '') + String(i+1) + "/" + String(details.length) + "]");
         var arr = {};
         arr.type = "Feature";
 
@@ -51,6 +51,7 @@ rp(url)
 
         datab.features.push(arr);
       }
+      console.log("...Done.");
     })
     .then(function(html) {
       return Promise.all(
@@ -63,7 +64,12 @@ rp(url)
       console.log("*****************RESULT******************");
       console.log(res)
       for (let i = 0; i < res.length; i++){
-        datab.features[i].geometry.coordinates = res[i].latlng;
+        try {
+          datab.features[i].geometry.coordinates = res[i].latlng;
+        }
+        catch (err) {
+          console.log("Nope.");
+        }
       }
       console.log("DATAB: "+datab.features[0].geometry.coordinates[0]);
       console.log("DATAB: "+datab.features[0].geometry.coordinates[1]);
